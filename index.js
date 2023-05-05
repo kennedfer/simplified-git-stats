@@ -1,11 +1,11 @@
-import Fastify from "fastify";
+const express = require("express");
+const app = express();
+const port = 3000;
 
-const fastify = Fastify();
-fastify.get("/", (req, reply) => {
-  reply.send("calica");
-  console.log("okok");
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-fastify.listen({ port: process.env.PORT || 3000 }, (err) => {
-  console.log("server is runnning");
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
