@@ -6,9 +6,13 @@ app.get("/", (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
 
   res.send(`
-    <svg height="100" width="100">
-      <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-    </svg>
+  <svg width="100" height="120" viewBox="0 0 100 120" fill="#858585" xmlns="http://www.w3.org/2000/svg">
+  <style>
+  .text { font: 600 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #2F80ED }
+  .small { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #252525 }
+  .gray { fill: #858585 }
+  </style>
+  </svg>
   `);
   console.log("entrou");
 });
