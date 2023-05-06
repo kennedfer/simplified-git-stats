@@ -6,23 +6,26 @@ app.get("/", (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
 
   res.send(`
-  <svg class="container" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
     <style>
       .container{
-        background-color: #161b22;
+        fill: #161b22;
         padding: 16px;
         border-radius: 10px;
       }
 
       .small {
-        font: 85% sans-serif;
+        font: 3px sans-serif;
         fill: #fff;
       }
     </style>
 
-    <text x="0" y="0" class="small">Several lines:
-      <tspan x="0" dy="15">Numero de Repositorios: 10</tspan>
-      <tspan x="0" dy="15">Numero de Estrelas: 10</tspan>
+    <rect class="container" x="0" width="100%" height="100%" rx="5px" ry="5px" stroke-linejoin="round" />
+    
+    <text x="10" y="12" class="small">Several lines:
+   
+      <tspan x="10" dy="3">Numero de Repositorios: 10</tspan>
+      <tspan x="10" dy="3">Numero de Estrelas: 10</tspan>
     </text>
   </svg>
   `);
