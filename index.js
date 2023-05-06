@@ -15,17 +15,17 @@ app.get("/", (req, res) => {
       }
 
       .small {
-        font: 3.5px sans-serif;
+        font: 3px sans-serif;
         fill: #fff;
       }
     </style>
 
     <rect class="container" x="0" width="100%" height="100%" rx="2px" ry="2px" stroke-linejoin="round" />
     
-    <text x="4" y="6" class="small">Github:
+    <text x="3" y="6" class="small">Github:
    
-      <tspan x="4" dy="4">Numero de Repositorios: 10</tspan>
-      <tspan x="4" dy="4">Numero de Estrelas: 10</tspan>
+      <tspan x="3" dy="3.5">Numero de Repositorios: 10</tspan>
+      <tspan x="3" dy="3.5">Numero de Estrelas: 10</tspan>
     </text>
   </svg>
   `);
