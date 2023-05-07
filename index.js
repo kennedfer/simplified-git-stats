@@ -1,8 +1,11 @@
-const express = require("express");
+import express from "express";
+import { fetchUserInfo } from "./api/fetch-infos.js";
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  // console.log(await fetchUserInfo());
+
   res.setHeader("Content-Type", "image/svg+xml");
 
   res.send(`
@@ -15,17 +18,18 @@ app.get("/", (req, res) => {
       }
 
       .small {
-        font: 3px sans-serif;
+        font: 3px monospace;
+        font-family: Consolas;
         fill: #fff;
       }
     </style>
 
     <rect class="container" x="0" width="100%" height="100%" rx="2px" ry="2px" stroke-linejoin="round" />
     
-    <text x="3" y="6" class="small">Github:
+    <text x="3.5" y="6" class="small">Github:
    
-      <tspan x="3" dy="3.5">Numero de Repositorios: 10</tspan>
-      <tspan x="3" dy="3.5">Numero de Estrelas: 10</tspan>
+      <tspan x="3.5" dy="3.5">Numero de Repositorios: 10</tspan>
+      <tspan x="3.5" dy="3.5">Numero de Estrelas: 10</tspan>
     </text>
   </svg>
   `);
