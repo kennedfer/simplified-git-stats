@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
       }
 
       .small {
-        font: 3px monospace;
+        font: 2.8px monospace;
         font-family: Consolas;
         fill: #fff;
       }
