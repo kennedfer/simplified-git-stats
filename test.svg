@@ -17,7 +17,7 @@
     
     <text x="3.5" y="6" class="small">Github:
    
-      <tspan x="3.5" dy="3.5">Numero de Repositorios: 10</tspan>
-      <tspan x="3.5" dy="3.5">Numero de Estrelas: 10</tspan>
+      <tspan x="3.5" dy="4">Numero de Repositorios: 10</tspan>
+      <tspan x="3.5" dy="4">Numero de Estrelas: 10</tspan>
     </text>
   </svg>
