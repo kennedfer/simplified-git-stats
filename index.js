@@ -1,20 +1,10 @@
 import express from "express";
-import { fetchUserInfo } from "./api/fetch-infos.js";
-import { render } from "./scripts/card/card.js";
+import infoCard from "./api/info.js";
+
 const app = express();
-const port = 3000;
 
-app.get("/", async (req, res) => {
-  const data = await fetchUserInfo();
-  console.log(data);
+app.get("/", infoCard);
 
-  res.setHeader("Content-Type", "image/svg+xml");
-
-  res.send(render(data));
-
-  console.log("entrou");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running...`);
 });

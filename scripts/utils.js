@@ -6,3 +6,5 @@ export const getDaysDifference = (createdAt) => {
   const diffInMs = currentDateMs - createdDateMs;
   return Math.floor(diffInMs / msInDay);
 };
+
+export const HALF_HOUR = 1800;
