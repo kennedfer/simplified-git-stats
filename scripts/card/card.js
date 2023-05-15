@@ -1,4 +1,4 @@
-export const render = (info) => {
+export const renderCard = (info) => {
   const linesCount = 7;
   const verticalOffset = 3;
   const lineHeight = 4;
@@ -24,9 +24,9 @@ export const render = (info) => {
     
     <text x="4" y="6" class="text">Github Stats:
   
-      <tspan x="4" dy="4">Numero de Repositorios: ${info.repos}</tspan>
-      <tspan x="4" dy="4">Numero de Estrelas: ${info.stars}</tspan>
-      <tspan x="4" dy="4">Numero de PRs: ${info.prs}</tspan>
+      <tspan x="4" dy="4">Número de Repositórios: ${info.repos}</tspan>
+      <tspan x="4" dy="4">Número de Estrelas: ${info.stars}</tspan>
+      <tspan x="4" dy="4">Número de PRs: ${info.prs}</tspan>
       <tspan x="4" dy="4">Seguidores: ${info.followers}</tspan>
       
       <tspan x="4" dy="8">Criado à ${info.daysFromCreation} dias</tspan>
