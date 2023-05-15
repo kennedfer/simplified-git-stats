@@ -10,5 +10,6 @@ export default async (req, res) => {
     `max-age=${1800}, s-maxage=${1800}, stale-while-revalidate=${1800}`
   );
 
+  console.log(req.query);
   res.send(render(userInfo));
 };
