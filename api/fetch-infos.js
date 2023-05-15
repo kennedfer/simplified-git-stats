@@ -1,18 +1,18 @@
 import axios from "axios";
 import { getDaysDifference } from "../scripts/utils.js";
 
-export const fetchUserInfo = async () => {
-  const info = (await axios.get("https://api.github.com/users/kennedfer")).data;
+export const fetchUserInfo = async (user) => {
+  const info = (await axios.get(`https://api.github.com/users/${user}`)).data;
 
   //! MUDAR PARA fetchUser
 
   const reposStarreds = (
-    await axios.get("https://api.github.com/users/kennedfer/starred")
+    await axios.get(`https://api.github.com/users/${user}/starred`)
   ).data;
 
   const pulls = (
     await axios.get(
-      "https://api.github.com/search/issues?q=author:kennedfer%20type:pr%20is:merged"
+      `https://api.github.com/search/issues?q=author:${user}%20type:pr%20is:merged`
     )
   ).data;
 
