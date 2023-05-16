@@ -1,5 +1,8 @@
 import axios from "axios";
-import { getDaysDifference } from "../scripts/utils.js";
+import {
+  calculeLanguagesPercents,
+  getDaysDifference,
+} from "../scripts/utils.js";
 
 export const fetchUserInfo = async (user) => {
   const info = (await axios.get(`https://api.github.com/users/${user}`)).data;
@@ -9,6 +12,12 @@ export const fetchUserInfo = async (user) => {
   const reposStarreds = (
     await axios.get(`https://api.github.com/users/${user}/starred`)
   ).data;
+
+  const allRepos = (
+    await axios.get(`https://api.github.com/users/${user}/repos`)
+  ).data;
+
+  const languagesPercents = calculeLanguagesPercents(allRepos);
 
   const pulls = (
     await axios.get(
@@ -24,5 +33,6 @@ export const fetchUserInfo = async (user) => {
     prs: pulls["total_count"],
     daysFromCreation,
     followers: info.followers,
+    languagesPercents,
   };
 };
