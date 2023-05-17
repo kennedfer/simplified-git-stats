@@ -52,9 +52,10 @@ const createPercentLine = (value) => {
   const filledCount = Math.floor(value / 10) * 2;
   const unfilledCount = 20 - filledCount - sub;
 
-  return `${
+  return `<tspan class="colored-text">${
     FILLED_CHAR.repeat(filledCount) +
     isFraction +
+    "</tspan>" +
     UNFILLED_CHAR.repeat(unfilledCount)
   }`;
 };

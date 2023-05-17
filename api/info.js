@@ -14,6 +14,7 @@ export default async (req, reply) => {
     );
     reply.send(renderCard(userInfo));
   } catch (e) {
+    console.log(e);
     reply.send(renderError());
   }
 };
