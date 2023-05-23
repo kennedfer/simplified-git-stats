@@ -8,10 +8,7 @@ export default async (req, reply) => {
 
   try {
     const userInfo = await fetchUserInfo(user);
-    reply.setHeader(
-      "Cache-Control",
-      `max-age=${1800}, s-maxage=${1800}, stale-while-revalidate=${1800}`
-    );
+    reply.setHeader("Cache-Control", `max-age=${1800}, s-maxage=${1800},`);
     reply.send(renderCard(userInfo));
   } catch (e) {
     console.log(e);
