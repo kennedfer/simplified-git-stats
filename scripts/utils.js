@@ -7,13 +7,34 @@ export const getDaysDifference = (createdAt) => {
   return Math.floor(diffInMs / msInDay);
 };
 
+export const LANGUAGES = {
+  EN: {
+    title: "My Github",
+    reposText: "Number of Repositories",
+    starsText: "Number of Stars",
+    prsText: "Number of PRs",
+    followersText: "Followers",
+    othersText: "Others",
+    mostUsedLangsText: "Most Used Languages",
+  },
+  PT: {
+    title: "Meu Github",
+    reposText: "Número de Repositórios",
+    starsText: "Número de Estrelas",
+    prsText: "Número de PRs",
+    followersText: "Seguidores",
+    othersText: "Outros",
+    mostUsedLangsText: "Linguagens Mais Usadas",
+  },
+};
+
 export const HALF_HOUR = 1800;
 let longerLangName = 0;
 
 const UNFILLED_CHAR = "▯";
 const FILLED_CHAR = "▮";
 
-export const calculeLanguagesPercents = (allRepos) => {
+export const calculeLanguagesPercents = (allRepos, language) => {
   let languagesUseds = {};
 
   allRepos.forEach((repo) => {
@@ -23,7 +44,7 @@ export const calculeLanguagesPercents = (allRepos) => {
       : (languagesUseds[repoLang] = 1);
   });
 
-  languagesUseds["Outras"] = languagesUseds["null"];
+  languagesUseds[language.othersText] = languagesUseds["null"];
   delete languagesUseds["null"];
 
   let langsPercents = [];
@@ -60,9 +81,9 @@ const createPercentLine = (value) => {
   }`;
 };
 
-export const renderUsedsLangs = (langsPercents) => {
+export const renderUsedsLangs = (langsPercents, language) => {
   let element = [];
-  element.push('<tspan x="4" dy="8">Linguagens Mais Usadas:</tspan>');
+  element.push(`<tspan x="4" dy="8">${language.mostUsedLangsText}:</tspan>`);
 
   langsPercents.forEach((lang) => {
     element.push(

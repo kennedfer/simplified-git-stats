@@ -4,10 +4,8 @@ import {
   getDaysDifference,
 } from "../scripts/utils.js";
 
-export const fetchUserInfo = async (user) => {
+export const fetchUserInfo = async (user, language) => {
   const info = (await axios.get(`https://api.github.com/users/${user}`)).data;
-
-  //! MUDAR PARA fetchUser
 
   const reposStarreds = (
     await axios.get(`https://api.github.com/users/${user}/starred`)
@@ -17,7 +15,7 @@ export const fetchUserInfo = async (user) => {
     await axios.get(`https://api.github.com/users/${user}/repos`)
   ).data;
 
-  const languagesPercents = calculeLanguagesPercents(allRepos);
+  const languagesPercents = calculeLanguagesPercents(allRepos, language);
 
   const pulls = (
     await axios.get(
@@ -34,5 +32,6 @@ export const fetchUserInfo = async (user) => {
     daysFromCreation,
     followers: info.followers,
     languagesPercents,
+    language,
   };
 };
